@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let swiperInstance = null;
 
     // Improved GitHub Pages detection
-    const basePath = window.location.hostname.includes("github.io") ? "/portfolio" : "";
+    const basePath = window.location.hostname.includes("github.io") ? "/" : "";
 
     function loadPage(page) {
         // Add trailing slash for GitHub Pages compatibility
