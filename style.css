@@ -1,0 +1,479 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Empêche le défilement horizontal */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #666;
+}
+body {
+    background-image: url('./assets/background.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    backdrop-filter:saturate(166%);
+    -webkit-backdrop-filter: saturate(150%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 30px;
+    background-color: rgba(255, 255, 255, 0.70);
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    height: 60px;
+}
+
+.nav-links {
+    position: relative;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 10px 0;
+    z-index: 2;
+}
+
+.nav-indicator {
+    position: absolute;
+    height: 40px;
+    background-color: rgba(253, 159, 27, 0.866);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Applique l'animation lorsqu'un lien est cliqué */
+.navbar.clicked {
+    animation: navbarClick 0.3s ease-in-out;
+}
+
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 100px; /* Espace pour la navbar */
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    backdrop-filter: blur(6px) saturate(166%);
+    -webkit-backdrop-filter: blur(6px) saturate(150%);
+    background-color: rgba(255, 255, 255, 0.70);
+    border-radius: 30px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 7vh;
+    color: #333;
+    margin: 0; /* Supprime la marge pour que le gap du conteneur gère l'espacement */
+    margin-right: 35px;
+    font-weight: bold;
+}
+
+.card.main-card {
+    width: 550px;
+    flex: 2; /* Prend plus d'espace que la project card */
+}
+
+.project-card img {
+    max-width: 100%;
+    border-radius: 30px;
+}
+.card h1{
+    display: inline-block;
+    background: linear-gradient(to left, rgb(255, 140, 0), rgb(238, 121, 244));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animation lors du clic sur un lien */
+@keyframes navbarClick {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); } /* Agrandissement */
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+.card .moi {
+    max-width: 250px;
+    border-radius: 30px;
+    text-align: center; /* Centrer l'image si nécessaire */
+}
+
+
+.text-content .CV {
+    position: relative;
+    border: 1px solid #aaaaaa;
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.text-content .CV::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+
+.text-content .CV::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(
+        45deg,
+        #d49cee, #c96afc, #ffb12b, #f69c57,
+        #f69c57, #ffb12b, #c96afc, #d49cee
+    );
+    background-size: 600%;
+    z-index: -1;
+    border-radius: 32px;
+    filter: blur(5px);
+    animation: glowing 10s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.text-content .CV:hover::before {
+    opacity: 1;
+}
+
+.text-content .CV:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
+.project-card {
+    backdrop-filter: blur(6px) saturate(166%);
+    -webkit-backdrop-filter: blur(6px) saturate(150%);
+    background-color: rgba(255, 255, 255, 0.70);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    border-radius: 30px;
+    padding: 20px;
+    width: 300px;
+}
+
+.card.project-card {
+    width: 300px;
+    flex: 1;
+    padding: 4vh;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.card.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card p{
+    color: #333;
+    border-radius: 30px;
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit; /* Hérite la couleur du parent */
+    display: block; /* Pour que le lien prenne toute la zone cliquable */
+}
+
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Conteneur pour le texte et la flèche */
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+}
+
+.project-info p {
+    margin: 0;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Style pour la flèche */
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    color: #333;
+}
+
+/* Style pour le bouton Discutons */
+.discutons-btn {
+    display: flex;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.discutons-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Conteneur pour la project card et le bouton */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 1024px) {
+    .cards-container {
+        margin-top: 300px; /* Augmenter l'espacement avec la navbar */
+        padding: 15px;
+        gap: 20px; /* Augmenter l'écart entre les cartes */
+    }
+
+    .card.main-card {
+        width: 600px; /* Réduire la taille */
+    }
+
+    .project-card {
+        width: 250px;
+        padding: 15px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width:1024px) {
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre les cartes */
+        justify-content: center;
+        margin-top: 300px; /* Augmenter l'espacement avec la navbar */
+        gap: 20px;
+    }
+
+    .project-card {
+        display: none;
+    }
+
+    .discutons-btn {
+        display: none; /* Masquer le bouton "Discutons" */
+    }
+}
+
+/* Tablettes et mobiles (jusqu'à 768px) */
+@media screen and (max-width: 768px) {
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre les cartes */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card.main-card,
+    .right-column,
+    .project-card {
+        width: 80%;
+        max-width: 350px;
+    }
+
+    .project-card {
+        display: none;
+    }
+
+    .discutons-btn {
+        display: none; /* Masquer le bouton "Discutons" */
+    }
+
+    .card .moi {
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Petits mobiles (jusqu'à 480px) */
+@media screen and (max-width: 480px) {
+
+    body{
+        overflow-x: hidden;
+        height: 110vh;
+    }
+
+    .card.main-card {
+        width: 85%;
+        padding: 15px;
+    }
+
+    .project-card {
+        display: none; /* Masquer les project cards */
+    }
+
+    .discutons-btn {
+        display: none; /* Masquer le bouton "Discutons" */
+    }
+
+    .text-content p {
+        font-size: 0.85em;
+    }
+
+    .background-container {
+        background-size: contain; /* Utilise contain si cover coupe trop l'image */
+    }
+}
+
+section.coordonnees {
+    width: 90%;
+    max-width: 700px; /* Augmenté pour une section plus grande */
+    margin: 50px auto; /* Plus d'espace autour pour bien centrer */
+    padding: 30px; /* Plus d'espace intérieur */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    background: rgba(255, 255, 255, 0.2); /* Légère transparence */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.18);
+    text-align: center; /* Centrage du texte */
+}
+
+section.coordonnees h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+
+section.coordonnees ul {
+    list-style-type: none;
+    padding: 0;
+    border-radius: 20px;
+}
+
+section.coordonnees ul li {
+    font-size: 18px; /* Texte légèrement plus grand */
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #333;
+}
+.social-link img {
+    width: 40px; /* Taille des logos */
+    height: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-link img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+#contactButton {
+    padding: 14px 24px; /* Bouton plus large */
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+
+#contactButton {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+}
+
+#contactButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+    background: white;
+    color: #333;
+}
+
+#contactButton:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(255, 117, 140, 0.4);
+}
