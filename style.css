@@ -303,7 +303,7 @@ body {
 
 @media screen and (max-width: 1024px) {
     .cards-container {
-        margin-top: 300px; /* Augmenter l'espacement avec la navbar */
+        margin-top: -200px; /* Augmenter l'espacement avec la navbar */
         padding: 15px;
         gap: 20px; /* Augmenter l'écart entre les cartes */
     }
